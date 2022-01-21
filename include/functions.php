@@ -54,7 +54,12 @@ function getSvxTXLines() {
 	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
 	return $logLines;
 }
-
+function getSvxTGLines() {
+	// returns the SvxLink log lines
+	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+	$loglines = `egrep -h "Talker start on TG #" $logPath | tail -1`;
+	return $logLines;
+}
 function getConnectedEcholink($logLines) {
 	// retrieves the current EchoLink users connected to the SvxLink
         $users = Array();
