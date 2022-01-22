@@ -37,8 +37,7 @@ function getGitVersion(){
 }
 
 function getSvxLog() {
-	/* retrieves the current SvxLink log file */
-        $logLines = array();
+	$logLines = array();
         if ($log = fopen(SVXLOGPATH."/".SVXLOGPREFIX, 'r')) {
                 while ($logLine = fgets($log)) {
                         array_push($logLines, $logLine);
@@ -47,19 +46,16 @@ function getSvxLog() {
         }
         return $logLines;
 }
-
 function getSvxTXLines() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
 	return $logLines;
 }
-
 function getSvxTGLines() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$loglines = `egrep -h "Talker start on TG #" $logPath | tail -1`;
 	return $logLines;
 }
-
 function getConnectedEcholink($logLines) {
 	$users = Array();
         foreach ($logLines as $logLine) {
@@ -80,7 +76,6 @@ function getConnectedEcholink($logLines) {
         }
         return $users;
 }
-
 function getEcholinkCount($logLines) {
 	$getCount = getConnectedEcholink($logLines);
 	$count = count($getCount);
