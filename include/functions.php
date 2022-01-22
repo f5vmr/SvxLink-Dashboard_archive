@@ -37,7 +37,7 @@ function getGitVersion(){
 }
 
 function getSvxLog() {
-	// retrieves the current SvxLink log file
+	/* retrieves the current SvxLink log file */
         $logLines = array();
         if ($log = fopen(SVXLOGPATH."/".SVXLOGPREFIX, 'r')) {
                 while ($logLine = fgets($log)) {
@@ -49,7 +49,7 @@ function getSvxLog() {
 }
 
 function getSvxTXLines() {
-	// returns the SvxLink transmitter log lines
+	/* returns the SvxLink transmitter log lines */
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
 	return $logLines;
