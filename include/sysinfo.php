@@ -96,8 +96,8 @@
 
 ?>
 <div class="col">
-  <div class="card">
-    <div class="card-header">System Info</div>
+  <div class="card" >
+    <div class="card-header bg-primary">System Info</div>
       <div class="table-responsive">
         <table id="sysinfo" class="table table-condensed">
           <tbody>
@@ -133,3 +133,4 @@
       </div>
     </div>
 </div>
+
