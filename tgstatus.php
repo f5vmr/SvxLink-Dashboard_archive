@@ -10,7 +10,7 @@ $txStatus = getSvxTXLines();
 if (strpos($txStatus,"TG")) {
 	echo "<tr><td class=\"table-danger text-center\"></td></tr>";
 } else {
-	echo "<tr><td class=\"table-success text-center\">OFF</td></tr>";
+	echo "<tr><td class=\"table-success text-center\"></td></tr>";
 }
 
 
