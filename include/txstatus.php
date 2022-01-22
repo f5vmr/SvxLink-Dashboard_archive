@@ -1,5 +1,5 @@
   <div class="card">
-    <div class="card-header bg-primary">
+    <div class="card-header bg-primary text-white">
       Transmitter Status
     </div>
     <div class="table-responsive">
