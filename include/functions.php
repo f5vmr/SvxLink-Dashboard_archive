@@ -53,7 +53,7 @@ function getSvxTXLines() {
 }
 function getSvxTGLines() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-	$loglines = `egrep -h "Talker" $logPath | tail -1`;
+	$loglines = `egrep -h "Selecting" $logPath | tail -1`;
 	return $logLines;
 }
 function getConnectedEcholink($logLines) {
