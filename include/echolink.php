@@ -11,7 +11,7 @@
     </div>
     <div class="col">
       <div class="card">
-        <div class="card-header bg-primary">Connected Echolink Stations
+        <div class="card-header bg-primary text-white">Connected Echolink Stations
         </div>
         <div class="table-responsive">
           <table id="echolink" class="table table-condensed">
