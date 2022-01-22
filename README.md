@@ -70,7 +70,6 @@ Contributions are what make the open source community such an amazing place to b
 Distributed under the GPL 3.0 License. See `LICENSE` for more information.
 
 ## Contact
-
-Steve Miller - smiller@kc1awv.net
+Chris Jackson (g4nab.ne63@gmail.com)
 
 Project Link: [https://github.com/f5vmr/SvxLink-Dashboard](https://github.com/f5vmr/SvxLink-Dashboard)
