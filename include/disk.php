@@ -1,6 +1,6 @@
 <div class="col">
 <div class="card">
-<div class="card-header bg-primary">Disk use</div>
+<div class="card-header bg-primary text-white">Disk use</div>
   <div class="table-responsive">
     <table id="diskuse" class="table table-condensed table-striped table-hover">
       <thead>
