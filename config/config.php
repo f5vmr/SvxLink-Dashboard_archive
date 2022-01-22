@@ -10,7 +10,7 @@ define("SVXLOGICSECTION", "SimplexLogic");
 define("SVXSimplexLOGICSECTION", "SimplexLogic");
 define("SVXRepeaterLOGICSECTION", "RepeaterLogic");
 define("SVXReflectorLOGICSECTION", "ReflectorLogic");
-define("SVXMODULES", array('EchoLink', 'Parrot', 'MetarInfo', 'TclVoiceMail'));
+define("SVXMODULES", array('EchoLink', 'Parrot', 'MetarInfo'));
 define("TIMEZONE", "United Kingdom/London");
 define("REFRESHAFTER", "60");
 define("SHOWPROGRESSBARS", "on");
