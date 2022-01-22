@@ -6,6 +6,7 @@ define("SVXLOGPREFIX", "svxlink");
 define("SVXCONFPATH", "/etc/svxlink");
 define("SVXCONFFILENAME", "svxlink.conf");
 define("SVXLINKPATH", "/usr/bin");
+define("SVXLOGICSECTION", "SimplexLogic");
 define("SVXSimplexLOGICSECTION", "SimplexLogic");
 define("SVXRepeaterLOGICSECTION", "RepeaterLogic");
 define("SVXReflectorLOGICSECTION", "ReflectorLogic");
