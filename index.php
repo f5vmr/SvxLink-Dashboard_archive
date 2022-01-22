@@ -79,9 +79,16 @@ include "version.php";
     </div>
   </div>
   <div class="container-fluid">
-    <?php include "include/echolink.php"; ?>
+    <div class="row">
+      <div class="col-4">
+        <?php include "include/tgstatus.php"; ?>
+      </div>
+      <div class="col-8">
+        <?php include "include/echolink.php"; ?>
+ 
+      </div>
+    </div>
   </div>
-
   <footer class="footer-copyright">
     <span class="navbar navbar-dark bg-dark fixed-bottom text-muted">
       <div class="container-fluid">
