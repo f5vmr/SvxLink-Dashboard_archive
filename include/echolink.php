@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col">
       <div class="card text-center">
-        <div class="card-header bg-primary">
+        <div class="card-header bg-primary text-white">
           Echolink User Count
         </div>
         <div id="elgauge"></div>
