@@ -44,13 +44,13 @@ include "version.php";
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item text-white">
+          <li class="nav-item">
             <a class="nav-link" href="#">Home</a>
           </li>
-          <li class="nav-item text-white">
+          <li class="nav-item">
             <a class="nav-link" href="log.php">Log</a>
           </li>
-          <li class="nav-item text-white">
+          <li class="nav-item">
             <a class="nav-link" href="mailto:<?php echo CONTACTEMAIL ?>">Contact</a>
           </li>
         </ul>
