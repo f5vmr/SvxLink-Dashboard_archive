@@ -49,22 +49,19 @@ function getSvxLog() {
 }
 
 function getSvxTXLines() {
-	/* returns the SvxLink transmitter log lines */
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
 	return $logLines;
 }
 
 function getSvxTGLines() {
-	/* returns the SvxLink log lines */
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$loglines = `egrep -h "Talker start on TG #" $logPath | tail -1`;
 	return $logLines;
 }
 
 function getConnectedEcholink($logLines) {
-	/* retrieves the current EchoLink users connected to the SvxLink */
-        $users = Array();
+	$users = Array();
         foreach ($logLines as $logLine) {
                 if(strpos($logLine,"Echolink QSO")){
                         $users = Array();
