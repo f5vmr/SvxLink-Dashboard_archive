@@ -5,13 +5,13 @@ include "include/tools.php";
 include "include/functions.php";
 
 $configs = getSvxConfig();
-$txStatus = getSvxTGLines();
-/*
-if (strpos($txStatus,"ON")) {
-	echo "<tr><td class=\"table-danger text-center\">ON</td></tr>";
+$txStatus = getSvxTXLines();
+
+if (strpos($txStatus,"TG")) {
+	echo "<tr><td class=\"table-danger text-center\"></td></tr>";
 } else {
 	echo "<tr><td class=\"table-success text-center\">OFF</td></tr>";
-}*/
+}
 
 
 ?>
