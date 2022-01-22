@@ -48,18 +48,18 @@ function getSvxLog() {
 }
 function getSvxTXLines() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-	$logLines = `egrep -h "transmitter ON" $logPath | tail -1`;
+	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
 	return $logLines;
 }
 function getSvxTGLines() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-	$loglines = `egrep -h "Talker start on TG #" $logPath | tail -1`;
+	$loglines = `egrep -h "Talker" $logPath | tail -1`;
 	return $logLines;
 }
 function getConnectedEcholink($logLines) {
 	$users = Array();
         foreach ($logLines as $logLine) {
-                if(strpos($logLine,"Echolink QSO")){
+                if(strpos($logLine,"QSO")){
                         $users = Array();
                 }
                 if(strpos($logLine,"state changed to CONNECTED")) {
