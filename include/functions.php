@@ -51,6 +51,11 @@ function getSvxTXLines() {
 	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
 	return $logLines;
 }
+function getSvxTXLines() {
+	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
+	return $logLines;
+}
 function getSvxTGLines() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$loglines = `egrep -h "Talker" $logPath | tail -1`;
