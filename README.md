@@ -38,8 +38,9 @@ This should be as simple as cloning the repo into your webserver, editing the co
 
 ### Prerequisites
 
-* A webserver on the SvxLink Server
-* PHP (developed using version 7.3)
+* A webserver on the SvxLink Server. Raspberry OS (Buster Lite) already has lighttpd installed.
+* PHP (developed using version 7.3) see the instruction below following a sudo apt update and sudo apt upgrade.
+* sudo apt install php7.3 php7.3-curl php7.3-gd php7.3-bdmath php7.3-cgi php7.3-ldap php7.3-mbstring php7.3-xml php7.3-soap php7.3-xsl php7.3-zip
 
 ### Installation
 
