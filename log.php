@@ -67,7 +67,7 @@ include "version.php";
   </div>
 
   <footer class="footer-copyright">
-    <span class="navbar navbar-dark bg-dark fixed-bottom text-muted">
+    <span class="navbar navbar-dark bg-primary fixed-bottom text-muted">
       <div class="container-fluid">
         <span class="float:left;">
           <?php
@@ -97,3 +97,4 @@ include "version.php";
 </body>
 
 </html>
+
