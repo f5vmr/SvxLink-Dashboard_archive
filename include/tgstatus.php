@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card bg-primary">
     <div class="card-header">
       TalkGroup Status
     </div>
