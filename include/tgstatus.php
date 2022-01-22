@@ -2,6 +2,8 @@
     <div class="card-header bg-primary text-white">
       TalkGroup Status
     </div>
+function getTGfromlogFile()
+	
     <div class="table-responsive">
       <table id="currtx" class="table table-condensed table-striped table-hover">
         <thead>
