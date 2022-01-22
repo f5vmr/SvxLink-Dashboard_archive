@@ -29,15 +29,12 @@
 
 ## About The Project
 
-This project aims to provide a simple dashboard for [SvxLink](https://www.svxlink.org) to monitor the system status, module status, and log viewing.
+This project aims to provide a simple dashboard for [SvxLink](https://www.svxlink.org) to monitor the system status, module status, and log viewing, with added capability to change parameters and monitor the talkgroups sent to svxreflector.
 
 ### Built With
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
 * [PHP](https://www.php.net)
-
-#### Also a lot of borrowed code from
-* [YSFReflector-Dashboard](https://github.com/dg9vh/YSFReflector-Dashboard)
 
 ## Getting Started
 
@@ -50,17 +47,17 @@ This should be as simple as cloning the repo into your webserver, editing the co
 
 ### Installation
 
-1. Clone the repo to your webserver
+1. Clone the repo to your webserver that is to say cd /var/www
 ```sh
-git clone https://github.com/kc1awv/SvxLink-Dashboard.git
+git clone https://github.com/f5vmr/SvxLink-Dashboard.git html
 ```
-2. Edit the constants in config/config.php to suit your install
+2. cd to html then edit the constants in config/config.php to suit your install
 3. ?????
 4. Profit! :)
 
 ## Roadmap
 
-See the [open issues](https://github.com/kc1awv/SvxLink-Dashboard/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/f5vmr/SvxLink-Dashboard/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
@@ -80,4 +77,4 @@ Distributed under the GPL 3.0 License. See `LICENSE` for more information.
 
 Steve Miller - smiller@kc1awv.net
 
-Project Link: [https://github.com/kc1awv/SvxLink-Dashboard](https://github.com/kc1awv/SvxLink-Dashboard)
+Project Link: [https://github.com/f5vmr/SvxLink-Dashboard](https://github.com/f5vmr/SvxLink-Dashboard)
