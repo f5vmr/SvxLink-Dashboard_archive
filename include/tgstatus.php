@@ -1,15 +1,15 @@
 <div class="card">
     <div class="card-header">
-      Transmitter Status
+      TalkGroup Status
     </div>
     <div class="table-responsive">
       <table id="currtx" class="table table-condensed table-striped table-hover">
         <thead>
           <tr>
-            <th>TX State</th>
+            <th>TG State</th>
           </tr>
         </thead>
-        <tbody id="txline">
+        <tbody id="tgline">
         </tbody>
       </table>
     </div>
@@ -31,7 +31,7 @@
 	xmlhttp.send();
   }
   function refreshInQSOAndLastHeardList() {
-	doXMLHTTPRequest("txstatus.php","txline");
+	doXMLHTTPRequest("tgstatus.php","tgline");
   }
   var transmitting = false;
   function loadXMLDoc() {
@@ -43,12 +43,13 @@
 	}
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			document.getElementById("txline").innerHTML=xmlhttp.responseText;
+			document.getElementById("tgline").innerHTML=xmlhttp.responseText;
 		}
 	}
-	xmlhttp.open("GET","txstatus.php",true);
+	xmlhttp.open("GET","tgstatus.php",true);
 	xmlhttp.send();
 	var timeout = window.setTimeout("loadXMLDoc()", 1000);
   }
   loadXMLDoc();
   </script>
+
