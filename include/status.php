@@ -21,9 +21,9 @@
 <?php
 	foreach (array_values($modules) as $status) {
 		if ($status == "On") {
-			echo "<td class=\"table-danger\">".$status."</td>";
+			echo "<td class=\"table-success\">".$status."</td>";
 		} else {
-			echo "<td class=\"table-success\">Off</td>";
+			echo "<td class=\"table-danger\">Off</td>";
 		}
 	}
 ?>
