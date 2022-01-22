@@ -7,11 +7,7 @@
     A simple dashboard for an SvxLink server!
     <br />
     <br />
-    <a href="http://svxlink.kc1awv.net:8080/index.php">View Demo</a>
-    ·
-    <a href="https://github.com/kc1awv/SvxLink-Dashboard/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/kc1awv/SvxLink-Dashboard/issues">Request Feature</a>
+    
   </p>
 </p>
 
