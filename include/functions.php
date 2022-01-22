@@ -86,7 +86,7 @@ function initModuleArray() {
 	// this initializes the active SvxLink module array for further use - move to tools.php?
 	$modules = Array();
 	foreach (SVXMODULES as $enabled) {
-                $modules[$enabled] = 'Off';
+                $modules[$enabled] = 'On';
         }
 	return $modules;
 }
