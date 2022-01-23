@@ -25,7 +25,7 @@
 
 ## About The Project
 
-This project aims to provide a simple dashboard for [SvxLink](https://www.svxlink.org) to monitor the system status, module status, and log viewing, with added capability to change parameters and monitor the talkgroups sent to svxreflector.
+This project aims to provide a simple dashboard for [SvxLink](https://www.svxlink.org) to monitor the system status, module status, and log viewing, with added capability to change parameters and monitor the talkgroups sent to svxreflector. It is still under development but it will become available very soon. Please do not attempt to clone or download yet, as some major changes will be made in the next few days that may render the existing repository less than helpful. You will see changes to this text when the new phases are complete.
 
 ### Built With
 * [Bootstrap](https://getbootstrap.com)
