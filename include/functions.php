@@ -11,8 +11,39 @@ function getSvxConfig() {
         }
         return $conf;
 }
-
-function getConfigItem($section, $key, $configs) {
+function getEchoConfig() {
+        // loads ModuleEchoLink.conf into array for further use
+        $conf = array();
+        if ($configs = fopen(SVXMODCONFPATH."/".SVXMODECHOLINKCONFFILENAME, 'r')) {
+                while ($config = fgets($configs)) {
+                        array_push($conf, trim ( $config, " \t\n\r\0\x0B"));
+                }
+                fclose($configs);
+        }
+        return $conf;
+}
+function getMetarConfig() {
+        // loads svxlink.conf into array for further use
+        $conf = array();
+        if ($configs = fopen(SVXMODCONFPATH."/".SVXMODMETARINFOCONFFILENAME, 'r')) {
+                while ($config = fgets($configs)) {
+                        array_push($conf, trim ( $config, " \t\n\r\0\x0B"));
+                }
+                fclose($configs);
+        }
+        return $conf;
+}
+function getParrotConfig() {
+        // loads svxlink.conf into array for further use
+        $conf = array();
+        if ($configs = fopen(SVXMODCONFPATH."/".SVXMODPARROTCONFFILENAME, 'r')) {
+                while ($config = fgets($configs)) {
+                        array_push($conf, trim ( $config, " \t\n\r\0\x0B"));
+                }
+                fclose($configs);
+        }
+        return $conf;
+}function getConfigItem($section, $key, $configs) {
         // retrieves the corresponding config stanza within a [section]
         $sectionpos = array_search("[" . $section . "]", $configs) + 1;
         $len = count($configs);
