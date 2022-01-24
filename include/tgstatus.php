@@ -2,9 +2,7 @@
     <div class="card-header bg-primary text-white">
       TalkGroup Status
     </div>
-function getTGfromlogFile()
-	
-    <div class="table-responsive">
+	    <div class="table-responsive">
       <table id="currtx" class="table table-condensed table-striped table-hover">
         <thead>
           <tr>
@@ -17,6 +15,7 @@ function getTGfromlogFile()
     </div>
   </div>
   <script>
+	  
   function doXMLHTTPRequest(scriptname, elem) {
 	var xmlhttp;
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
