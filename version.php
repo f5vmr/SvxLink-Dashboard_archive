@@ -1,3 +1,3 @@
 <?php
-define("VERSION", "1.100 (".getGitVersion().")");
+define("VERSION", "1.(".getGitVersion().")");
 ?>
