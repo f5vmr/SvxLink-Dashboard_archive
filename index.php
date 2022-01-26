@@ -91,7 +91,7 @@ include "version.php";
   </div>
     
   <footer class="footer-copyright">
-    <span class="navbar bg-secondary fixed-bottom text-red">
+    <span class="navbar navbar-expand-lg navbar-dark bg-primary text-white static-top">
 <!--    <span class="navbar bg-primary fixed-bottom text-red"> -->
       <div class="container-fluid">
         <span class="float:left;">
