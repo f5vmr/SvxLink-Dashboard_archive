@@ -89,6 +89,13 @@ include "version.php";
       </div>
     </div>
   </div>
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <?php echo "SvxLink Dashboard v.".VERSION." | Last Reload ".$lastReload->format('Y-m-d, H:i:s')." (".TIMEZONE.")"; ?>
+      </div>
+    </div>
+  </div>
   <footer class="footer-copyright">
     <span class="navbar navbar-dark bg-primary fixed-bottom text-red">
       <div class="container-fluid">
