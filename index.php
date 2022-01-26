@@ -59,7 +59,7 @@ include "version.php";
   </nav>
 
   <!-- Page Content -->
-  <?php checkSetup(); ?>
+  <!-- ?php checkSetup(); ?-->
   <div class="container-fluid">
     <div class="row">
       <?php
