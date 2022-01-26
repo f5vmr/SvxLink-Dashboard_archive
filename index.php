@@ -89,22 +89,15 @@ include "version.php";
       </div>
     </div>
   </div>
-    <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <?php echo "SvxLink Dashboard v.".VERSION." | Last Reload ".$lastReload->format('Y-m-d, H:i:s')." (".TIMEZONE.")"; ?>
-      </div>
-    </div>
-  </div>
+    
   <footer class="footer-copyright">
-    <span class="navbar navbar-dark bg-primary fixed-bottom text-red">
+    <span class="navbar bg-primary fixed-bottom text-red">
       <div class="container-fluid">
         <span class="float:left;">
           <?php
             $lastReload = new DateTime();
             $lastReload->setTimezone(new DateTimeZone(TIMEZONE));
-              echo "test";
-//              echo "SvxLink Dashboard v.".VERSION." | Last Reload ".$lastReload->format('Y-m-d, H:i:s')." (".TIMEZONE.")";
+                echo "SvxLink Dashboard v.".VERSION." | Last Reload ".$lastReload->format('Y-m-d, H:i:s')." (".TIMEZONE.")";
             $time = microtime();
             $time = explode(' ', $time);
             $time = $time[1] + $time[0];
