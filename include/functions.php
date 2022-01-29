@@ -44,9 +44,9 @@ function getParrotConfig() {
         }
         return $conf;
 }
-function getConfigItem($section, $key, $configs) {
+function getConfigItem($section(), $key, $configs) {
         // retrieves the corresponding config stanza within a [section]
-        $sectionpos = array_search("[" . $section . "]", $configs) + 1;
+        $sectionpos = array_search("[" . $section() . "]", $configs) + 1;
         $len = count($configs);
         while(startsWith($configs[$sectionpos],$key."=") === false && $sectionpos <= ($len) ) {
                 if (startsWith($configs[$sectionpos],"[")) {
