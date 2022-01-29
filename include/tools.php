@@ -77,6 +77,15 @@ function checkSetup() {
    }
    error_reporting($el);
 }
+function initModuleArray() {
+	// this initializes the active SvxLink module array for further use - move to tools.php?
+	$modules = Array();
+	foreach (SVXMODULES as $enabled) {
+                $modules[$enabled] = 'On';
+        }
+	return $modules;
+}
+
 
 function convertTimezone($timestamp) {
    $date = new DateTime($timestamp);
