@@ -8,10 +8,10 @@
       <table id="status" class="table table-condensed table-bordered">
         <thead>
           <tr class="text-center">
-<?php	$config = getSvxConfig();
-//	echo getConfigItem(Global,"LOGICS",$config);	  
+<!-- <?php	$config = getSvxConfig();
+		  echo getConfigItem(Global,"LOGICS",$config);	  
 		  
-?>		  
+?> -->		  
 <!-- <?php
 	$modules = getActiveModules($logLines);
 	foreach (array_keys($modules) as $module) {
