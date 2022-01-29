@@ -92,7 +92,7 @@ include "version.php";
     <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-<?php include "include/nodestatus.php"; ?>
+<?php //include "include/nodestatus.php"; ?>
 
       </div>
     </div>
