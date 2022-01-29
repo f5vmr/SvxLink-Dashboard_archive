@@ -92,7 +92,7 @@ function initStanzaArray() {
 	foreach (SVXLOGICSECTION as $enabled) {
                 $stanza[$enabled] = 'On';
         }
-	return $modules;
+	return $stanza;
 }
 function convertTimezone($timestamp) {
    $date = new DateTime($timestamp);
