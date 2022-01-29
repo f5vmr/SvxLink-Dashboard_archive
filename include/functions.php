@@ -114,14 +114,7 @@ function getEcholinkCount($logLines) {
 	return $count;
 }
 
-function initModuleArray() {
-	// this initializes the active SvxLink module array for further use - move to tools.php?
-	$modules = Array();
-	foreach (SVXMODULES as $enabled) {
-                $modules[$enabled] = 'On';
-        }
-	return $modules;
-}
+
 
 function getActiveModules($logLines) {
 	// this updates the module array with the status of the modules - could use cleanup
