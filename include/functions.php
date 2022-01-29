@@ -138,7 +138,23 @@ function getActiveModules($logLines) {
         }
         return $modules;
 }
+function initModuleArray() {
+	// this initializes the active SvxLink module array for further use
+	$modules = Array();
+	foreach (SVXMODULES as $enabled) {
+                $modules[$enabled] = 'On';
+        }
+	return $modules;
+}
 
+function initStanzaArray() {
+	// this initializes the active SvxLink stanza array for further use
+	$stanza = Array();
+	foreach (SVXLOGICSECTION as $enabled) {
+                $stanza[$enabled] = 'On';
+        }
+	return $stanza;
+}
 function getSize($filesize, $precision = 2) {
 	// this is for the system info card
 	$units = array('', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y');
