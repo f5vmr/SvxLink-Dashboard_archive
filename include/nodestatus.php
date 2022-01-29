@@ -8,7 +8,8 @@
       <table id="status" class="table table-condensed table-bordered">
         <thead>
           <tr class="text-center">
-	echo getSvxConfig($conf);
+<?php	echo getSvxConfig($conf);
+?>		  
 <!-- <?php
 	$modules = getActiveModules($logLines);
 	foreach (array_keys($modules) as $module) {
