@@ -77,23 +77,7 @@ function checkSetup() {
    }
    error_reporting($el);
 }
-function initModuleArray() {
-	// this initializes the active SvxLink module array for further use
-	$modules = Array();
-	foreach (SVXMODULES as $enabled) {
-                $modules[$enabled] = 'On';
-        }
-	return $modules;
-}
 
-function initStanzaArray() {
-	// this initializes the active SvxLink stanza array for further use
-	$stanza = Array();
-	foreach (SVXLOGICSECTION as $enabled) {
-                $stanza[$enabled] = 'On';
-        }
-	return $stanza;
-}
 function convertTimezone($timestamp) {
    $date = new DateTime($timestamp);
    $timezone = new DateTimeZone(TIMEZONE);
