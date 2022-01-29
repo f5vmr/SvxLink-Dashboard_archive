@@ -9,6 +9,7 @@
         <thead>
           <tr class="text-center">
 <?php	$config = getSvxConfig();
+	echo getConfigItem(Global,"LOGICS",$config);	  
 		  
 ?>		  
 <!-- <?php
