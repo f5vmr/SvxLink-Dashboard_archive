@@ -10,7 +10,7 @@ define("SVXMODECHOLINKFILENAME", "ModuleEchoLink.conf");
 define("SVXMODPARROTFILENAME", "ModuleParrot.conf");
 define("SVXMODMETARINFOFILENAME", "ModuleMetarInfo.conf");
 define("SVXLINKPATH", "/usr/bin");
-define("SVXLOGICSECTION", array ('SimplexLogic','RepeaterLogic','ReflectorLogic');
+define("SVXLOGICSECTION", array ('GLOBAL','SimplexLogic','RepeaterLogic','ReflectorLogic','LinkToReflector','Macros','Rx1','Tx1','LocationInfo');
 define("SVXMODULES", array('EchoLink', 'Parrot', 'MetarInfo'));
 define("TIMEZONE", "United Kingdom/London");
 define("REFRESHAFTER", "60");
