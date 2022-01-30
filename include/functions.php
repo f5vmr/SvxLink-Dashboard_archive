@@ -83,11 +83,11 @@ function getSvxTXLines() {
 	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
 	return $logLines;
 }
-function getSvxTGLines() {
+/*function getSvxTGLines() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$loglines = `egrep -h "Selecting" $logPath | tail -1`;
 	return $logLines;
-}
+}*/
 function getConnectedEcholink($logLines) {
 	$users = Array();
         foreach ($logLines as $logLine) {
