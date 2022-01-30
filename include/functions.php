@@ -24,6 +24,51 @@ function getConfigItem($section, $key, $configs) {
 
         return substr($configs[$sectionpos], strlen($key) + 1);
 }
+function getGitVersion(){
+	// retrieves the current Git version of the dashboard, if available
+	if (file_exists(".git")) {
+		exec("git rev-parse --short HEAD", $output);
+		return 'GitID #<a href="https://github.com/f5vmr/SvxLink-Dashboard/commit/'.$output[0].'" target="_blank">'.$output[0].'</a>';
+	} else {
+		return 'GitID unknown';
+	}
+}
+function getSvxLog() {
+	//Retrieves the current log file
+	$logLines = array();
+        if ($log = fopen(SVXLOGPATH."/".SVXLOGPREFIX, 'r')) {
+                while ($logLine = fgets($log)) {
+                        array_push($logLines, $logLine);
+                }
+                fclose($log);
+        }
+        return $logLines;
+}
+function getSvxTXLines() {
+	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
+	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
+	return $logLines;
+}
+function getConnectedEcholink($logLines) {
+	$users = Array();
+        foreach ($logLines as $logLine) {
+                if(strpos($logLine,"QSO")){
+                        $users = Array();
+                }
+                if(strpos($logLine,"state changed to CONNECTED")) {
+                        $lineParts = explode(" ", $logLine);
+			if (!array_search($lineParts[5], $users)) {
+                                array_push($users, Array('callsign'=>substr($lineParts[5],0,-1),'timestamp'=>substr($logLine,0,24)));
+                        }
+                }
+                if(strpos($logLine,"state changed to DISCONNECTED")) {
+                        $lineParts = explode(" ", $logLine);
+			$pos = array_search(substr($lineParts[5],0,-1), $users);
+			array_splice($users, $pos, 1);
+                }
+        }
+        return $users;
+}
 function getEchoConfig() {
         // loads ModuleEchoLink.conf into array for further use
         $conf = array();
@@ -58,63 +103,15 @@ function getParrotConfig() {
         return $conf;
 }
 
-function getGitVersion(){
-	// retrieves the current Git version of the dashboard, if available
-	if (file_exists(".git")) {
-		exec("git rev-parse --short HEAD", $output);
-		return 'GitID #<a href="https://github.com/f5vmr/SvxLink-Dashboard/commit/'.$output[0].'" target="_blank">'.$output[0].'</a>';
-	} else {
-		return 'GitID unknown';
-	}
-}
 
-function getSvxLog() {
-	//Retrieves the current log file
-	$logLines = array();
-        if ($log = fopen(SVXLOGPATH."/".SVXLOGPREFIX, 'r')) {
-                while ($logLine = fgets($log)) {
-                        array_push($logLines, $logLine);
-                }
-                fclose($log);
-        }
-        return $logLines;
-}
-function getSvxTXLines() {
-	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
-	return $logLines;
-}
+
+
+
 /*function getSvxTGLines() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$loglines = `egrep -h "Selecting" $logPath | tail -1`;
 	return $logLines;
 }*/
-function getConnectedEcholink($logLines) {
-	$users = Array();
-        foreach ($logLines as $logLine) {
-                if(strpos($logLine,"QSO")){
-                        $users = Array();
-                }
-                if(strpos($logLine,"state changed to CONNECTED")) {
-                        $lineParts = explode(" ", $logLine);
-			if (!array_search($lineParts[5], $users)) {
-                                array_push($users, Array('callsign'=>substr($lineParts[5],0,-1),'timestamp'=>substr($logLine,0,24)));
-                        }
-                }
-                if(strpos($logLine,"state changed to DISCONNECTED")) {
-                        $lineParts = explode(" ", $logLine);
-			$pos = array_search(substr($lineParts[5],0,-1), $users);
-			array_splice($users, $pos, 1);
-                }
-        }
-        return $users;
-}
-function getEcholinkCount($logLines) {
-	$getCount = getConnectedEcholink($logLines);
-	$count = count($getCount);
-	return $count;
-}
-
 
 
 function getActiveModules($logLines) {
@@ -139,6 +136,12 @@ function getActiveModules($logLines) {
         }
         return $modules;
 }
+function getEcholinkCount($logLines) {
+	$getCount = getConnectedEcholink($logLines);
+	$count = count($getCount);
+	return $count;
+}
+
 function initModuleArray() {
 	// this initializes the active SvxLink module array for further use
 	$modules = Array();
@@ -148,14 +151,14 @@ function initModuleArray() {
 	return $modules;
 }
 
-function initStanzaArray() {
+/*function initStanzaArray() {
 	// this initializes the active SvxLink stanza array for further use
 	$stanza = Array();
 	foreach (SVXLOGICSECTION as $enabled) {
                 $stanza[$enabled] = 'On';
         }
 	return $stanza;
-}
+}*/
 function getSize($filesize, $precision = 2) {
 	// this is for the system info card
 	$units = array('', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y');
