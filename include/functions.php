@@ -11,6 +11,19 @@ function getSvxConfig() {
         }
         return $conf;
 }
+function getConfigItem($section, $key, $configs) {
+        // retrieves the corresponding config stanza within a [section]
+        $sectionpos = array_search("[" . $section . "]", $configs) + 1;
+        $len = count($configs);
+        while(startsWith($configs[$sectionpos],$key."=") === false && $sectionpos <= ($len) ) {
+                if (startsWith($configs[$sectionpos],"[")) {
+                        return null;
+                }
+                $sectionpos++;
+        }
+
+        return substr($configs[$sectionpos], strlen($key) + 1);
+}
 function getEchoConfig() {
         // loads ModuleEchoLink.conf into array for further use
         $conf = array();
@@ -44,19 +57,6 @@ function getParrotConfig() {
         }
         return $conf;
 }
-function getConfigItem($section, $key, $configs) {
-        // retrieves the corresponding config stanza within a [section]
-        $sectionpos = array_search("[" . $section . "]", $configs) + 1;
-        $len = count($configs);
-        while(startsWith($configs[$sectionpos],$key."=") === false && $sectionpos <= ($len) ) {
-                if (startsWith($configs[$sectionpos],"[")) {
-                        return null;
-                }
-                $sectionpos++;
-        }
-
-        return substr($configs[$sectionpos], strlen($key) + 1);
-}
 
 function getGitVersion(){
 	// retrieves the current Git version of the dashboard, if available
@@ -69,6 +69,7 @@ function getGitVersion(){
 }
 
 function getSvxLog() {
+	//Retrieves the current log file
 	$logLines = array();
         if ($log = fopen(SVXLOGPATH."/".SVXLOGPREFIX, 'r')) {
                 while ($logLine = fgets($log)) {
