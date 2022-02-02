@@ -12,7 +12,6 @@ include "include/tools.php";
 include "include/functions.php";
 include "include/init.php";
 include "version.php";
-include "include/styles.css";
 
 ?>
 
@@ -29,16 +28,15 @@ include "include/styles.css";
 
   <title>SvxLink Dashboard for <?php echo getConfigItem(SVXLOGICSECTION, "CALLSIGN", $configs); ?></title>
 
-  <!-- Bootstrap core CSS 
+  <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
--->
-  <link rel="stylesheet" href="include/style.css" </link>
+
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-white static-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="#">SvxLink Dashboard - <?php echo getConfigItem(SVXLOGICSECTION, "CALLSIGN", $configs); ?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +59,7 @@ include "include/styles.css";
   </nav>
 
   <!-- Page Content -->
-  <!-- ?php checkSetup(); ?-->
+  <?php checkSetup(); ?>
   <div class="container-fluid">
     <div class="row">
       <?php
@@ -81,33 +79,17 @@ include "include/styles.css";
     </div>
   </div>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-4">
-        <?php include "include/tgstatus.php"; ?>
-      </div>
-      <div class="col-8">
-        <?php include "include/echolink.php"; ?>
- 
-      </div>
-    </div>
+    <?php include "include/echolink.php"; ?>
   </div>
-    <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-<?php //include "include/nodestatus.php"; ?>
 
-      </div>
-    </div>
-  </div>  
   <footer class="footer-copyright">
-    <span class="navbar navbar-dark bg-dark fixed-bottom text-black">
-<!--    <span class="navbar bg-primary fixed-bottom text-red"> -->
+    <span class="navbar navbar-dark bg-dark fixed-bottom text-muted">
       <div class="container-fluid">
         <span class="float:left;">
           <?php
             $lastReload = new DateTime();
             $lastReload->setTimezone(new DateTimeZone(TIMEZONE));
-                echo "SvxLink Dashboard v.".VERSION." | Last Reload ".$lastReload->format('Y-m-d, H:i:s')." (".TIMEZONE.")";
+              echo "SvxLink Dashboard v.".VERSION." | Last Reload ".$lastReload->format('Y-m-d, H:i:s')." (".TIMEZONE.")";
             $time = microtime();
             $time = explode(' ', $time);
             $time = $time[1] + $time[0];
@@ -117,7 +99,7 @@ include "include/styles.css";
           ?>
         </span>
         <span class="float:right;">
-          <strong>Copyright &copy; <script>document.write( new Date().getFullYear() );</script> <a href="https://g4nab.co.uk">g4nab.co.uk</a>.</strong> All rights reserved.
+          <strong>Copyright &copy; <script>document.write( new Date().getFullYear() );</script> <a href="https://kc1awv.net">kc1awv.net</a>.</strong> All rights reserved.
         </span>
       </div>
     </span>
