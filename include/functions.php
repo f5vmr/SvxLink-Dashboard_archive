@@ -11,6 +11,7 @@ function getSvxConfig() {
         }
         return $conf;
 }
+
 function getConfigItem($section, $key, $configs) {
         // retrieves the corresponding config stanza within a [section]
         $sectionpos = array_search("[" . $section . "]", $configs) + 1;
@@ -24,18 +25,20 @@ function getConfigItem($section, $key, $configs) {
 
         return substr($configs[$sectionpos], strlen($key) + 1);
 }
+
 function getGitVersion(){
 	// retrieves the current Git version of the dashboard, if available
 	if (file_exists(".git")) {
 		exec("git rev-parse --short HEAD", $output);
-		return 'GitID #<a href="https://github.com/f5vmr/SvxLink-Dashboard/commit/'.$output[0].'" target="_blank">'.$output[0].'</a>';
+		return 'GitID #<a href="https://github.com/kc1awv/SvxLink-Dashboard/commit/'.$output[0].'" target="_blank">'.$output[0].'</a>';
 	} else {
 		return 'GitID unknown';
 	}
 }
+
 function getSvxLog() {
-	//Retrieves the current log file
-	$logLines = array();
+	// retrieves the current SvxLink log file
+        $logLines = array();
         if ($log = fopen(SVXLOGPATH."/".SVXLOGPREFIX, 'r')) {
                 while ($logLine = fgets($log)) {
                         array_push($logLines, $logLine);
@@ -44,15 +47,19 @@ function getSvxLog() {
         }
         return $logLines;
 }
+
 function getSvxTXLines() {
+	// returns the SvxLink transmitter log lines
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	$logLines = `egrep -h "transmitter" $logPath | tail -1`;
 	return $logLines;
 }
+
 function getConnectedEcholink($logLines) {
-	$users = Array();
+	// retrieves the current EchoLink users connected to the SvxLink
+        $users = Array();
         foreach ($logLines as $logLine) {
-                if(strpos($logLine,"QSO")){
+                if(strpos($logLine,"Echolink QSO")){
                         $users = Array();
                 }
                 if(strpos($logLine,"state changed to CONNECTED")) {
@@ -69,50 +76,21 @@ function getConnectedEcholink($logLines) {
         }
         return $users;
 }
-function getEchoConfig() {
-        // loads ModuleEchoLink.conf into array for further use
-        $conf = array();
-        if ($configs = fopen(SVXMODCONFPATH."/".SVXMODECHOLINKCONFFILENAME, 'r')) {
-                while ($config = fgets($configs)) {
-                        array_push($conf, trim ( $config, " \t\n\r\0\x0B"));
-                }
-                fclose($configs);
-        }
-        return $conf;
-}
-function getMetarConfig() {
-        // loads svxlink.conf into array for further use
-        $conf = array();
-        if ($configs = fopen(SVXMODCONFPATH."/".SVXMODMETARINFOCONFFILENAME, 'r')) {
-                while ($config = fgets($configs)) {
-                        array_push($conf, trim ( $config, " \t\n\r\0\x0B"));
-                }
-                fclose($configs);
-        }
-        return $conf;
-}
-function getParrotConfig() {
-        // loads svxlink.conf into array for further use
-        $conf = array();
-        if ($configs = fopen(SVXMODCONFPATH."/".SVXMODPARROTCONFFILENAME, 'r')) {
-                while ($config = fgets($configs)) {
-                        array_push($conf, trim ( $config, " \t\n\r\0\x0B"));
-                }
-                fclose($configs);
-        }
-        return $conf;
+
+function getEcholinkCount($logLines) {
+	$getCount = getConnectedEcholink($logLines);
+	$count = count($getCount);
+	return $count;
 }
 
-
-
-
-
-/*function getSvxTGLines() {
-	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-	$loglines = `egrep -h "Selecting" $logPath | tail -1`;
-	return $logLines;
-}*/
-
+function initModuleArray() {
+	// this initializes the active SvxLink module array for further use - move to tools.php?
+	$modules = Array();
+	foreach (SVXMODULES as $enabled) {
+                $modules[$enabled] = 'Off';
+        }
+	return $modules;
+}
 
 function getActiveModules($logLines) {
 	// this updates the module array with the status of the modules - could use cleanup
@@ -136,33 +114,20 @@ function getActiveModules($logLines) {
         }
         return $modules;
 }
-function getEcholinkCount($logLines) {
-	$getCount = getConnectedEcholink($logLines);
-	$count = count($getCount);
-	return $count;
-}
 
-function initModuleArray() {
-	// this initializes the active SvxLink module array for further use
-	$modules = Array();
-	foreach (SVXMODULES as $enabled) {
-                $modules[$enabled] = 'On';
-        }
-	return $modules;
-}
-
-/*function initStanzaArray() {
-	// this initializes the active SvxLink stanza array for further use
-	$stanza = Array();
-	foreach (SVXLOGICSECTION as $enabled) {
-                $stanza[$enabled] = 'On';
-        }
-	return $stanza;
-}*/
 function getSize($filesize, $precision = 2) {
 	// this is for the system info card
 	$units = array('', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y');
 	foreach ($units as $idUnit => $unit) {
+		if ($filesize > 1024)
+			$filesize /= 1024;
+		else
+			break;
+	}
+	return round($filesize, $precision).' '.$units[$idUnit].'B';
+}
+
+?>
 		if ($filesize > 1024)
 			$filesize /= 1024;
 		else
